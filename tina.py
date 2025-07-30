@@ -202,7 +202,7 @@ def send_message(recipient_id, message_text):
     }
     auth = {"access_token": PAGE_ACCESS_TOKEN}
     response = requests.post(
-        "https://graph.facebook.com/v12.0/me/messages",
+        "https://graph.facebook.com/v22.0/me/messages",
         params=auth,
         json=payload
     )
