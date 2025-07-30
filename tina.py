@@ -135,14 +135,14 @@ def termos():
 def pagina_nao_encontrada(e):
     return render_template("404.html"), 404
 
-@app.route("/", methods=["GET"])
+@app.route("/webhook", methods=["GET"])
 def verify():
     token_sent = request.args.get("hub.verify_token")
     if token_sent == VERIFY_TOKEN:
         return request.args.get("hub.challenge")
     return "Token de verificação inválido"
 
-@app.route("/", methods=["POST"])
+@app.route("/webhook", methods=["POST"])
 def webhook():
     data = request.get_json()
     messaging_events = data["entry"][0]["messaging"]
